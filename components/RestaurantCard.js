@@ -2,22 +2,9 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Svg, { Path } from 'react-native-svg';
 import { urlFor } from '../sanity';
+import { useNavigation } from '@react-navigation/native'
+import { StarIcon } from 'react-native-heroicons/solid'
 
-const StarIcon = (props) => (
-  <Svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="green"
-    aria-hidden="true"
-    {...props}
-  >
-    <Path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-    />
-  </Svg>
-);
 
 const LocationMarkerIcon = (props) => (
   <Svg
@@ -56,8 +43,24 @@ const RestaurantCard = ({
   long,
   lat
 }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity className="bg-white mr-3 shadow">
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('Restaurant', {
+          id,
+          imgUrl,
+          title,
+          rating,
+          genre,
+          address,
+          short_description,
+          dishes,
+          long,
+          lat
+        })
+      }}
+      className="bg-white mr-3 shadow">
       <Image
         source={{ uri: urlFor(imgUrl).url() }}
         className="h-36 w-64 rounded-sm"
@@ -66,7 +69,7 @@ const RestaurantCard = ({
       <View className="px-3 pb-4">
         <Text className="font-bold text-lg pt-2">{title}</Text>
         <View className="flex-row items-center space-x-1">
-          <StarIcon width={22} height={22} stroke='green' opacity={0.5} />
+          <StarIcon size={22} color='green' opacity={0.5} />
           <Text className="text-xs text-gray-500">
             <Text className="text-green-500">{rating}</Text> . {genre}
           </Text>
