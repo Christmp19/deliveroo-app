@@ -12,6 +12,8 @@
     "@expo/metro-runtime": "~3.2.1",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
+    "@sanity/client": "^6.20.0",
+    "@sanity/image-url": "^1.0.2",
     "expo": "~51.0.13",
     "expo-status-bar": "~1.12.1",
     "nativewind": "^2.0.11",
