@@ -24,9 +24,10 @@ const DishRow = ({
     };
 
     const removeItemFromBasket = () => {
-        if (items.length > 0) {
-            dispatch(removeFromBasket({ id }));
+        if (!items.length > 0) {
+            return;
         }
+        dispatch(removeFromBasket({ id }));
     };
 
     // console.log(items);
@@ -60,7 +61,9 @@ const DishRow = ({
             {isPressed && (
                 <View className='bg-white px-4'>
                     <View className='flex-row items-center space-x-2 pb-3'>
-                        <TouchableOpacity onPress={removeItemFromBasket}>
+                        <TouchableOpacity
+                            disabled={!items.length}
+                            onPress={removeItemFromBasket}>
                             <MinusCircleIcon
                                 color={items.length > 0 ? defaultColor : 'gray'}
                                 size={40} />
@@ -71,7 +74,7 @@ const DishRow = ({
                             
                         <TouchableOpacity onPress={addItemToBasket}>
                             <PlusCircleIcon
-                                color={items.length > 0 ? defaultColor : 'gray'}
+                                color={defaultColor }
                                 size={40} />
                         </TouchableOpacity>
                     </View>
