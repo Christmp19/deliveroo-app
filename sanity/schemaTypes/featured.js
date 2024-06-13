@@ -3,7 +3,7 @@ import { defineField, defineType } from 'sanity'
 export default defineType({
     name: 'featured',
     type: 'document',
-    title: 'Featured Categories',
+    title: 'Featured Menu Categories',
     fields: [
         defineField({
             name: 'name',

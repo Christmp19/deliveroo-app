@@ -1,6 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Svg, { Path } from 'react-native-svg';
+import { urlFor } from '../sanity';
 
 const StarIcon = (props) => (
   <Svg
@@ -58,7 +59,7 @@ const RestaurantCard = ({
   return (
     <TouchableOpacity className="bg-white mr-3 shadow">
       <Image
-        source={{ uri: imgUrl }}
+        source={{ uri: urlFor(imgUrl).url() }}
         className="h-36 w-64 rounded-sm"
       />
 
