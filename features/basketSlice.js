@@ -29,6 +29,12 @@ export const basketSlice = createSlice({
 export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
 // export const selectBasketItems = (state) => state.basket.items;
+// export const selectBasketTotal = (state) => state.basket.items.reduce((total, item) =>
+//     total + item.price,0)
+
+// export const selectBasketItemsWithId = (state, id) =>
+//     state.basket.items.filter((item) => item.id === id);
+
  
 const selectBasket = (state) => state.basket;
 
@@ -37,13 +43,14 @@ export const selectBasketItemsWithId = createSelector(
     (basket, id) => basket.items.filter((item) => item.id === id)
 );
 
-// Sélecteur mémorisé pour tous les items du panier
 export const selectBasketItems = createSelector(
     [selectBasket],
     (basket) => basket.items
 );
+export const selectBasketTotal = createSelector(
+    [selectBasketItems],
+    (items) => items.reduce((total, item) => total + item.price, 0)
+);
 
-// export const selectBasketItemsWithId = (state, id) =>
-//     state.basket.items.filter((item) => item.id === id);
 
 export default basketSlice.reducer;
