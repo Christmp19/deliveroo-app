@@ -1,18 +1,35 @@
 # My Universal React native Project
 
-<!-- <table>
+<table>
   <tr>
     <td align="center">
-      <img src="cover.png?raw=true" alt="Template Screenshot" width="300">
+      <img src="covers/cover1.png?raw=true" alt="Template Screenshot" width="200">
     </td>
     <td align="center">
-      <img src="cover2.png?raw=true" alt="Template Screenshot" width="300">
+      <img src="covers/cover2.png?raw=true" alt="Template Screenshot" width="200">
     </td>
     <td align="center">
-      <img src="cover3.png?raw=true" alt="Template Screenshot" width="300">
+      <img src="covers/cover3.png?raw=true" alt="Template Screenshot" width="200">
+    </td>
+    <td align="center">
+      <img src="covers/cover4.png?raw=true" alt="Template Screenshot" width="200">
     </td>
   </tr>
-</table> -->
+  <tr>
+    <td align="center">
+      <img src="covers/cover4.png?raw=true" alt="Template Screenshot" width="200">
+    </td>
+    <td align="center">
+      <img src="covers/cover5.png?raw=true" alt="Template Screenshot" width="200">
+    </td>
+    <td align="center">
+      <img src="covers/cover6.png?raw=true" alt="Template Screenshot" width="200">
+    </td>
+    <td align="center">
+      <img src="covers/cover7.png?raw=true" alt="Template Screenshot" width="200">
+    </td>
+  </tr>
+</table>
 
 <p>
   <!-- iOS -->
