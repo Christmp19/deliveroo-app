@@ -16,7 +16,7 @@ const DeliveryScreen = () => {
         <Svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            fill="currentColor"
+            fill="white"
             {...props}
         >
             <Path
@@ -32,7 +32,7 @@ const DeliveryScreen = () => {
             <SafeAreaView className='z-50'>
                 <View className='flex-row justify-between items-center p-5'>
                     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                        <XIcon width={30} height={30} stroke='white' />
+                        <XIcon width={30} height={30} />
                     </TouchableOpacity>
                     <Text className='font-light text-white text-lg'>Order Help</Text>
                 </View>

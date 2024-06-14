@@ -1,15 +1,12 @@
-import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView } from 'react-native'
-import React, { useMemo, useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView } from 'react-native';
+import React, { useMemo, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRestaurant } from '../features/restaurantSlice';
-import { removeFromBasket, selectBasketItems, selectBasketTotal } from '../features/basketSlice';
+import { removeFromBasket, selectBasketItems, selectBasketTotal, resetBasket } from '../features/basketSlice';
 import { XCircleIcon } from 'react-native-heroicons/solid';
 import { urlFor } from '../sanity';
-import Currency from 'react-currency-formatter'
-
-
-
+import Currency from 'react-currency-formatter';
 
 const BasketScreen = () => {
     const navigation = useNavigation();
@@ -26,12 +23,19 @@ const BasketScreen = () => {
         }, {});
 
         setGroupedItemsInBasket(groupedItems);
-    }, [items])
+    }, [items]);
+
+    const isBasketEmpty = items.length === 0;
+
+    const handlePlaceOrder = () => {
+        navigation.navigate('PreparingOrder');
+        dispatch(resetBasket());
+    };
 
     return (
         <SafeAreaView className='flex-1 bg-white'>
             <View className='flex-1 bg-gray-100'>
-                <View className='p-5 border-b border-[#00CCBB] bg-white shaddow-xs'>
+                <View className='p-5 border-b border-[#00CCBB] bg-white shadow-xs'>
                     <View>
                         <Text className="text-lg font-bold text-center">Basket</Text>
                         <Text className='text-center text-gray-400'>{restaurant.title}</Text>
@@ -72,10 +76,11 @@ const BasketScreen = () => {
                                 <Currency quantity={items[0]?.price * items.length} currency="eur" />
                             </Text>
 
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => dispatch(removeFromBasket({ id: key }))}
+                                className='bg-[#00CCBB] p-2 rounded-md'>
                                 <Text
-                                    className='text-[#00CCBB] text-sm'
-                                    onPress={() => dispatch(removeFromBasket({ id: key }))}
+                                    className='text-white text-sm'
                                 >
                                     Remove
                                 </Text>
@@ -100,13 +105,14 @@ const BasketScreen = () => {
                     <View className='flex-row justify-between'>
                         <Text>Order Total</Text>
                         <Text className='font-extrabold'>
-                            <Currency quantity={basketTotal +5.99} currency="eur" />
+                            <Currency quantity={basketTotal + 5.99} currency="eur" />
                         </Text>
                     </View>
 
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('PreparingOrder')}
-                        className='rounded-lg bg-[#00CCBB] p-4'
+                        onPress={handlePlaceOrder}
+                        disabled={isBasketEmpty}
+                        className={`rounded-lg p-4 ${isBasketEmpty ? 'bg-gray-400' : 'bg-[#00CCBB]'}`}
                     >
                         <Text
                             className='text-center text-white text-lg font-bold'
@@ -115,10 +121,9 @@ const BasketScreen = () => {
                         </Text>
                     </TouchableOpacity>
                 </View>
-
             </View>
         </SafeAreaView>
-    )
-}
+    );
+};
 
-export default BasketScreen
+export default BasketScreen;

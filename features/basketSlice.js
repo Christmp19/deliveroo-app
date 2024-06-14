@@ -20,22 +20,16 @@ export const basketSlice = createSlice({
             } else {
                 console.warn(`Can't remove product (id: ${action.payload.id}) as its not in the basket!`)
             }
-
             state.items = newBasket;
+        },
+        resetBasket: (state) => {
+            state.items = [];
         },
     },
 })
 
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket, resetBasket } = basketSlice.actions;
 
-// export const selectBasketItems = (state) => state.basket.items;
-// export const selectBasketTotal = (state) => state.basket.items.reduce((total, item) =>
-//     total + item.price,0)
-
-// export const selectBasketItemsWithId = (state, id) =>
-//     state.basket.items.filter((item) => item.id === id);
-
- 
 const selectBasket = (state) => state.basket;
 
 export const selectBasketItemsWithId = createSelector(
@@ -47,10 +41,10 @@ export const selectBasketItems = createSelector(
     [selectBasket],
     (basket) => basket.items
 );
+
 export const selectBasketTotal = createSelector(
     [selectBasketItems],
     (items) => items.reduce((total, item) => total + item.price, 0)
 );
-
 
 export default basketSlice.reducer;
