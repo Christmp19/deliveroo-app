@@ -33,7 +33,7 @@ const BasketScreen = () => {
     };
 
     return (
-        <SafeAreaView className='flex-1 bg-white'>
+        <SafeAreaView className='flex-1 bg-white py-5'>
             <View className='flex-1 bg-gray-100'>
                 <View className='p-5 border-b border-[#00CCBB] bg-white shadow-xs'>
                     <View>

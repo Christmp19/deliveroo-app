@@ -29,7 +29,7 @@ const DeliveryScreen = () => {
 
     return (
         <View className="flex-1 bg-[#00CCBB]">
-            <SafeAreaView className='z-50'>
+            <SafeAreaView className='z-50 py-3'>
                 <View className='flex-row justify-between items-center p-5'>
                     <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                         <XIcon width={30} height={30} />
