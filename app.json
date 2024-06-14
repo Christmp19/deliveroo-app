@@ -21,7 +21,15 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "build": {
+        "babel": {
+          "include": [
+            "react-native-maps"
+          ]
+        }
+      }
     }
   }
 }
