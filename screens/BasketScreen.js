@@ -112,7 +112,7 @@ const BasketScreen = () => {
                     <TouchableOpacity
                         onPress={handlePlaceOrder}
                         disabled={isBasketEmpty}
-                        className={`rounded-lg p-4 ${isBasketEmpty ? 'bg-gray-400' : 'bg-[#00CCBB]'}`}
+                        className={`rounded p-4 ${isBasketEmpty ? 'bg-gray-400' : 'bg-[#00CCBB]'}`}
                     >
                         <Text
                             className='text-center text-white text-lg font-bold'
