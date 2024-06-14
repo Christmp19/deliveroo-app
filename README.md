@@ -3,30 +3,30 @@
 <table>
   <tr>
     <td align="center">
-      <img src="covers/cover1.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover1.png?raw=true" alt="Template Screenshot" width="150">
     </td>
     <td align="center">
-      <img src="covers/cover2.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover2.png?raw=true" alt="Template Screenshot" width="150">
     </td>
     <td align="center">
-      <img src="covers/cover3.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover3.png?raw=true" alt="Template Screenshot" width="150">
     </td>
     <td align="center">
-      <img src="covers/cover4.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover4.png?raw=true" alt="Template Screenshot" width="150">
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="covers/cover4.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover5.png?raw=true" alt="Template Screenshot" width="150">
     </td>
     <td align="center">
-      <img src="covers/cover5.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover6.png?raw=true" alt="Template Screenshot" width="150">
     </td>
     <td align="center">
-      <img src="covers/cover6.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover7.png?raw=true" alt="Template Screenshot" width="150">
     </td>
     <td align="center">
-      <img src="covers/cover7.png?raw=true" alt="Template Screenshot" width="200">
+      <img src="covers/cover8.png?raw=true" alt="Template Screenshot" width="150">
     </td>
   </tr>
 </table>
